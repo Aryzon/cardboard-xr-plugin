@@ -6,7 +6,7 @@ This uses a modified version of the Cardboard SDK [found here](https://github.co
 
 We made this to support the [Aryzon MR headsets](https://aryzon.com) however all other VR Cardboard headsets are supported with one condition, the camera must be able to see the world. Furthermore your phone must be able to run ARCore or ARKit.
 
-We use **ARFoundation** to feed 6DoF data to the Cardboard SDK. This means you can use anything you want from [ARFoundation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/manual/index.html)!.
+We use **ARFoundation** to feed 6DoF data to the Cardboard SDK. This means you can use all the goodies from [ARFoundation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/manual/index.html) like plane detection etc!
 
 
 ## Get started
