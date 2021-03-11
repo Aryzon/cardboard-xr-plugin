@@ -2,7 +2,7 @@
 ====================================
 This is a fork of the [Google Cardboard XR Plugin for Unity](https://github.com/googlevr/cardboard-xr-plugin/) to support 6DoF (roomscale) tracking. Instead of being fixed in place you can walk around!
 
-It uses a modified version of the Cardboard SDK found [here](https://github.com/Aryzon/cardboard/)
+This uses a modified version of the Cardboard SDK [found here](https://github.com/Aryzon/cardboard/)
 
 We made this to support the [Aryzon MR headsets](https://aryzon.com) however all other VR Cardboard headsets are supported with one condition, the camera must be able to see the world. Furthermore your phone must be able to run ARCore or ARKit.
 
