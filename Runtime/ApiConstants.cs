@@ -18,7 +18,7 @@
 
 namespace Google.XR.Cardboard
 {
-    internal static class ApiConstants
+    public static class ApiConstants
     {
 #if UNITY_ANDROID
         public const string CardboardApi = "cardboard_api";
