@@ -1,20 +1,24 @@
-Google Cardboard XR Plugin for Unity
+6DoF for the Cardboard SDK!
 ====================================
-Copyright 2020 Google LLC
+This is a fork of the [Google Cardboard XR Plugin for Unity](https://github.com/googlevr/cardboard-xr-plugin/) to support 6DoF (roomscale) tracking. Instead of being fixed in place you can walk around!
 
-This SDK provides everything you need to create your own Virtual Reality (VR)
-experiences for Google Cardboard in Unity 2019.3.12f1 or later. It supports
-essential VR features, such as:
+This uses a modified version of the Cardboard SDK [found here](https://github.com/Aryzon/cardboard/tree/development/)
 
- * Motion tracking
- * Stereoscopic rendering
- * User interaction via the viewer button
+We made this to support the [Aryzon MR headsets](https://aryzon.com) however all other VR Cardboard headsets are supported with one condition, the camera must be able to see the world. Furthermore your phone must be able to run ARCore or ARKit.
 
-With these capabilities you can build entirely new VR experiences, or enhance
-existing apps with VR capabilities.
+We use **ARFoundation** to feed 6DoF data to the Cardboard SDK. This means you can use all the goodies from [ARFoundation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/manual/index.html) like plane detection etc!
 
 
 ## Get started
+
+The Quickstart link below shows the default settings for Cardboard without 6DoF.
+Follow the instructions however apply these changes:
+
+1) Replace the package link with this: https://github.com/Aryzon/cardboard-xr-plugin.git
+2) In the package manager add ARFoundation and ARCore for Android or ARKit for iOS. The sample scene is made with version 2.1.6 but I suggest to try the highest stable version. We tested it up to 4.1.5 (you may need to change enum values on the ARCameraManager).
+3) Do **NOT** enable the Cardboard XR Plugin in XR Plug-in Management. Instead enable ARCore and/or ARKit.
+4) Add CARDBOARD_6DOF to the scripting define symbols (found in 'Player Settings' -> 'Other').
+5) From the sample scenes use 6DoF
 
 To get started with the Google Cardboard XR Plugin for Unity, see:
 
