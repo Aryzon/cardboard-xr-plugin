@@ -17,10 +17,7 @@
     ],
     "dependencies": {
         "com.unity.xr.management": "3.2.9",
-        "com.unity.xr.legacyinputhelpers": "2.1.4",
-        "com.unity.xr.arfoundation" : "4.1.5",
-        "com.unity.xr.arcore" : "4.1.5",
-        "com.unity.xr.arkit" : "4.1.5"
+        "com.unity.xr.legacyinputhelpers": "2.1.4"
     },
     "samples": [
         {
