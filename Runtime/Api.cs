@@ -181,10 +181,12 @@ namespace Google.XR.Cardboard
                 return;
             }
 
+            Rect screenRect = new Rect(0, 0, Screen.width, Screen.height);
+            
             // Only recalculate rectangles if safe area size has changed since last check.
-            if (_cachedSafeArea != Screen.safeArea)
+            if (_cachedSafeArea != screenRect)
             {
-                _cachedSafeArea = Screen.safeArea;
+                _cachedSafeArea = screenRect;
                 XRLoader.RecalculateRectangles(_cachedSafeArea);
             }
         }

@@ -224,9 +224,11 @@ namespace Google.XR.Cardboard
 
             SetGraphicsApi();
 
+            Rect screenRect = new Rect(0, 0, Screen.width, Screen.height);
+            
             // Safe area is required to avoid rendering behind the notch. If the device does not
             // have any notch, it will be equivalent to the full screen area.
-            RecalculateRectangles(Screen.safeArea);
+            RecalculateRectangles(screenRect);
         }
 
         /// <summary>
