@@ -18,7 +18,7 @@ Follow the instructions however apply these changes:
 2) In the package manager add ARFoundation and ARCore for Android or ARKit for iOS. The sample scene is made with version 2.1.6 but I suggest to try the highest stable version. We tested it up to 4.1.5 (you may need to change enum values on the ARCameraManager).
 3) Do **NOT** enable the Cardboard XR Plugin in XR Plug-in Management. Instead enable ARCore and/or ARKit.
 4) Add CARDBOARD_6DOF to the scripting define symbols (found in 'Player Settings' -> 'Other').
-5) From the sample scenes use 6DoF
+5) When using this for our Aryzon headsets, combine it with our Unity SDK: https://github.com/Aryzon/unity-sdk/.
 
 To get started with the Google Cardboard XR Plugin for Unity, see:
 
