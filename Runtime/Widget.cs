@@ -129,8 +129,8 @@ namespace Google.XR.Cardboard
             {
                 RectInt rect = new RectInt();
                 int widthPixels = DpToPixels(_alignmentWidthDp);
-                rect.xMin = ((int)Screen.safeArea.width - widthPixels) / 2;
-                rect.xMax = ((int)Screen.safeArea.width + widthPixels) / 2;
+                rect.xMin = ((int)Screen.width - widthPixels) / 2;
+                rect.xMax = ((int)Screen.width + widthPixels) / 2;
                 rect.y = 0;
                 rect.height = MmToPixels(_alignmentHeightMm);
                 return rect;
@@ -164,8 +164,8 @@ namespace Google.XR.Cardboard
         private static RectInt TranslateToSafeAreaFrame(RectInt rect)
         {
             RectInt result = rect;
-            result.x -= (int)Screen.safeArea.xMin;
-            result.y -= (int)Screen.safeArea.yMin;
+            //result.x -= (int)Screen.safeArea.xMin;
+            //result.y -= (int)Screen.safeArea.yMin;
             return result;
         }
     }

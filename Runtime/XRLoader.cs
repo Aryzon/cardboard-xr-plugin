@@ -32,6 +32,8 @@ namespace Google.XR.Cardboard
     /// </summary>
     public class XRLoader : XRLoaderHelper
     {
+        public static bool renderWidgets = true;
+
         private static List<XRDisplaySubsystemDescriptor> _displaySubsystemDescriptors =
             new List<XRDisplaySubsystemDescriptor>();
 
@@ -144,19 +146,29 @@ namespace Google.XR.Cardboard
                     (int)Screen.width, (int)Screen.height, (int)renderingArea.x,
                     (int)renderingArea.y, (int)renderingArea.width, (int)renderingArea.height);
 
-            RectInt closeRect = Widget.CloseButtonRenderRect;
-            RectInt gearRect = Widget.GearButtonRenderRect;
-            RectInt alignmentRect = Widget.AlignmentRect;
-            CardboardUnity_setWidgetCount(3);
-            CardboardUnity_setWidgetParams(
-                    0, _closeTexture.GetNativeTexturePtr(), closeRect.x, closeRect.y,
-                    closeRect.width, closeRect.height);
-            CardboardUnity_setWidgetParams(
-                    1, _gearTexture.GetNativeTexturePtr(), gearRect.x, gearRect.y, gearRect.width,
-                    gearRect.height);
-            CardboardUnity_setWidgetParams(
-                    2, Texture2D.whiteTexture.GetNativeTexturePtr(), alignmentRect.x,
-                    alignmentRect.y, alignmentRect.width, alignmentRect.height);
+            if (renderWidgets)
+            {
+                RectInt closeRect = Widget.CloseButtonRenderRect;
+                RectInt gearRect = Widget.GearButtonRenderRect;
+                RectInt alignmentRect = Widget.AlignmentRect;
+                CardboardUnity_setWidgetCount(3);
+                CardboardUnity_setWidgetParams(
+                        0, _closeTexture.GetNativeTexturePtr(), closeRect.x, closeRect.y,
+                        closeRect.width, closeRect.height);
+                CardboardUnity_setWidgetParams(
+                        1, _gearTexture.GetNativeTexturePtr(), gearRect.x, gearRect.y, gearRect.width,
+                        gearRect.height);
+                CardboardUnity_setWidgetParams(
+                        2, Texture2D.whiteTexture.GetNativeTexturePtr(), alignmentRect.x,
+                        alignmentRect.y, alignmentRect.width, alignmentRect.height);
+            } else
+            {
+                RectInt alignmentRect = Widget.AlignmentRect;
+                CardboardUnity_setWidgetCount(1);
+                CardboardUnity_setWidgetParams(
+                        0, Texture2D.whiteTexture.GetNativeTexturePtr(), alignmentRect.x,
+                        alignmentRect.y, alignmentRect.width, alignmentRect.height);
+            }
         }
 
         /// <summary>
