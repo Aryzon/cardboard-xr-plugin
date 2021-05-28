@@ -191,6 +191,44 @@ namespace Google.XR.Cardboard
             }
         }
 
+        public static void SetDeviceParamsURL(String url)
+        {
+            if (!XRLoader._isInitialized)
+            {
+                return;
+            }
+            CardboardUnity_setDeviceURL(url);
+        }
+
+        public static void SetInterLensDistance(float distance)
+        {
+            CardboardUnity_setInterLensDistance(distance);
+        }
+
+        public static void SetInterpupillaryDistance(float distance)
+        {
+            CardboardUnity_setInterpupillaryDistance(distance);
+        }
+
+        public static int GetQrCodeScanCount()
+        {
+            if (!XRLoader._isInitialized)
+            {
+                return -1;
+            }
+            return CardboardQrCode_getQrCodeScanCount();
+        }
+
+        public static String GetDeviceModel()
+        {
+            IntPtr charPointer = CardboardUnity_getDeviceModel();
+            if (charPointer == null)
+            {
+                return "";
+            }
+            return Marshal.PtrToStringAnsi(CardboardUnity_getDeviceModel());
+        }
+
         [DllImport(ApiConstants.CardboardApi)]
         private static extern void CardboardQrCode_scanQrCodeAndSaveDeviceParams();
 
@@ -206,5 +244,17 @@ namespace Google.XR.Cardboard
 
         [DllImport(ApiConstants.CardboardApi)]
         private static extern void CardboardUnity_setDeviceParametersChanged();
+
+        [DllImport(ApiConstants.CardboardApi)]
+        private static extern void CardboardUnity_setDeviceURL(String url);
+
+        [DllImport(ApiConstants.CardboardApi)]
+        private static extern IntPtr CardboardUnity_getDeviceModel();
+
+        [DllImport(ApiConstants.CardboardApi)]
+        private static extern void CardboardUnity_setInterLensDistance(float distance);
+
+        [DllImport(ApiConstants.CardboardApi)]
+        private static extern void CardboardUnity_setInterpupillaryDistance(float distance);
     }
 }
