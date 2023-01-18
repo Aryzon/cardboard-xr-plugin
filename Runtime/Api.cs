@@ -237,6 +237,9 @@ namespace Google.XR.Cardboard
         /// </param>
         public static void SaveDeviceParams(string uri)
         {
+#if UNITY_EDITOR
+            return;
+#endif
             if (!XRLoader._isInitialized)
             {
                 Debug.LogError(
@@ -287,6 +290,9 @@ namespace Google.XR.Cardboard
         /// </summary>
         public static void UpdateScreenParams()
         {
+#if UNITY_EDITOR
+            return;
+#endif
             if (!XRLoader._isInitialized)
             {
                 Debug.LogError(
@@ -319,6 +325,31 @@ namespace Google.XR.Cardboard
             CardboardUnity_recenterHeadTracker();
         }
 
+        /// <summary>
+        /// Returns the model of the current headset.
+        /// </summary>
+        public static string GetHeadsetModel()
+        {
+            if (!XRLoader._isInitialized)
+            {
+                Debug.LogError(
+                        "Please initialize Cardboard XR loader before calling this function.");
+                return null;
+            }
+
+            return CardboardUnity_getHeadsetModel();
+        }
+
+        public static void SetInterLensDistance(float distance)
+        {
+            CardboardUnity_setInterLensDistance(distance);
+        }
+
+        public static void SetInterpupillaryDistance(float distance)
+        {
+            CardboardUnity_setInterpupillaryDistance(distance);
+        }
+
         [DllImport(ApiConstants.CardboardApi)]
         private static extern void CardboardQrCode_scanQrCodeAndSaveDeviceParams();
 
@@ -341,5 +372,14 @@ namespace Google.XR.Cardboard
 
         [DllImport(ApiConstants.CardboardApi)]
         private static extern void CardboardUnity_recenterHeadTracker();
+
+        [DllImport(ApiConstants.CardboardApi)]
+        private static extern string CardboardUnity_getHeadsetModel();
+
+        [DllImport(ApiConstants.CardboardApi)]
+        private static extern void CardboardUnity_setInterpupillaryDistance(float distance);
+
+        [DllImport(ApiConstants.CardboardApi)]
+        private static extern void CardboardUnity_setInterLensDistance(float distance);
     }
 }
